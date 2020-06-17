@@ -16,7 +16,7 @@ io.on('connection', function (socket) {
    
    
    socket.on('username',(data)=>{
-      socket.emit($userName,data)
+      io.emit('username',data)
    })
    // Listen for a "newuser" message
    socket.on('newuser', (data) => {

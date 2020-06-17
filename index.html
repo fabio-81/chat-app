@@ -11,13 +11,12 @@
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
-		<form id="form" action="">
-			<input id="text" type="text">
-			<input id="submit_button" type="button" value="Send">
+		<form id="form" class="form_container">
+			<input id="form_text" class="form_text" type="">
+			<button class="form_button" type="submit">Send</button>
 		</form>
-		<ul id="messages">
-
-		</ul>
+		<ol id="messages" class="messages">
+		</ol>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="js/index.js"></script>
 	</body>
