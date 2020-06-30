@@ -4,9 +4,9 @@
 const socket = io()
 
 //prompt for username
-const $userName = prompt('Please enter your username!','welcome')
+const $userName = prompt('Please enter your username!')
 socket.emit('username',$userName)
-socket.on('username', (data)=> console.log(`Welcome ${$userName}`))
+socket.on('username', (data)=> console.log(`Welcome ${$userName}`,socket.id))
 
 //send a message
 socket.emit('newuser', {user: $userName}) //set a variable 'newuser' and the data
@@ -23,16 +23,16 @@ const $messages = document.getElementById('messages')
 $msgForm.addEventListener('submit', (event) =>{
     event.preventDefault()
 
-    socket.emit('chatmsg', {msg: event.currentTarget.text.value})
+    socket.emit('chatmsg', {message: event.currentTarget.text.value},{user: event.currentTarget.username.value})
     event.currentTarget.text.value = ''
     
     })
    
-    socket.on('chatmsg', (data)=>{
+    socket.on('chatmsg', (data,data2)=>{
         const newMsg = document.createElement('li')
         $messages.appendChild(newMsg)
 
-        newMsg.textContent = ($userName+":"+ data.msg)
+        newMsg.textContent = (`${data2.user}:${data.message}`)
         
         
     })
