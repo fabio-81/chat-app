@@ -11,12 +11,15 @@
 		<link rel="stylesheet" href="css/index.css">
 	</head>
 	<body>
+		<div class="chat container">
+		<ol id="messages" class="messages">
+		</ol>
 		<form id="form" class="form_container">
+			<input type="" id="username">
 			<input id="text" class="form_text" type="">
 			<button class="form_button" type="submit">Send</button>
 		</form>
-		<ol id="messages" class="messages">
-		</ol>
+	</div>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="js/index.js"></script>
 	</body>
