@@ -34,6 +34,9 @@ io.on('connection', function (socket) {
     socket.on('chatmsg', (data,data2) => {
        io.emit('chatmsg', data,data2)
     })
- 
- 
+
+    //listen for typing
+    socket.on('typing',(data)=>{
+      socket.broadcast.emit('typing', data);
+  });
  })

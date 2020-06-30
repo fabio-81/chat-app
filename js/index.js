@@ -16,6 +16,9 @@ const socket = io()
 
 const $msgForm = document.getElementById('form')
 const $messages = document.getElementById('messages')
+const $typing = document.getElementById('typing')
+const $userName = document.getElementById('username')
+
 // const $submit_button =document.getElementById('submit_button')
 // const $text = document.getElementById('text')
 
@@ -23,16 +26,30 @@ const $messages = document.getElementById('messages')
 $msgForm.addEventListener('submit', (event) =>{
     event.preventDefault()
 
-    socket.emit('chatmsg', {message: event.currentTarget.text.value},{user: event.currentTarget.username.value})
+    socket.emit('chatmsg', {message: event.currentTarget.text.value},{user: $userName.value})
     event.currentTarget.text.value = ''
     
     })
    
     socket.on('chatmsg', (data,data2)=>{
+        $typing.textContent= '' //clear the typing once typed
         const newMsg = document.createElement('li')
         $messages.appendChild(newMsg)
 
         newMsg.textContent = (`${data2.user}:${data.message}`)
         
+    })
+    //added typing eventlistener
+    $msgForm.addEventListener('keypress',(event)=>{
+
+        socket.emit('typing',$userName.value)
+        
         
     })
+    socket.on('typing',(data)=>{
+        const newMsg = document.createElement('li')
+        $typing.appendChild(newMsg)
+        $typing.textContent = (`${data} is typing`)
+        
+    })
+
