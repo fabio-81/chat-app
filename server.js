@@ -26,12 +26,13 @@ io.on('connection', function (socket) {
      // The same message, sent to all users - try it!
      //io.emit('newuser', data)
     })
+    
      
     
     // Listen for "chatmsg"
     //   io.emit to all user
-    socket.on('chatmsg', (data) => {
-       io.emit('chatmsg', data)
+    socket.on('chatmsg', (data,data2) => {
+       io.emit('chatmsg', data,data2)
     })
  
  
