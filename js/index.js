@@ -4,12 +4,12 @@
 const socket = io()
 
 //prompt for username
-const $userName = prompt('Please enter your username!')
-socket.emit('username',$userName)
-socket.on('username', (data)=> console.log(`Welcome ${$userName}`,socket.id))
+// const $userName = prompt('Please enter your username!')
+// socket.emit('username',$userName)
+// socket.on('username', (data)=> console.log(`Welcome ${$userName}`,socket.id))
 
 //send a message
-socket.emit('newuser', {user: $userName}) //set a variable 'newuser' and the data
+// socket.emit('newuser', {user: $userName}) //set a variable 'newuser' and the data
 
 // Event listener, waiting for an incoming "newuser"
 socket.on('newuser', (data) => console.log(`${data.user} has connected!`))

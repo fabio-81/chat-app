@@ -15,9 +15,9 @@ const io = require('socket.io').listen(server)
 io.on('connection', function (socket) {
    
    
-   socket.on('username',(data)=>{
-      io.emit('username',data)
-   })
+   // socket.on('username',(data)=>{
+   //    io.emit('username',data)
+   // })
    // Listen for a "newuser" message
    socket.on('newuser', (data) => {
      // Transmit a message to everyone except the sender
