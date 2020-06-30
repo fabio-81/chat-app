@@ -6,6 +6,21 @@ body{
     
 }
 .messages{
-    width: 15em;
-   
+    width: 100%;
+   min-height: 20em;
+   list-style: none;
+}
+.form_text{
+    width: 100%;
+}
+.form_button{
+    width: 100%;
+    background-color: darkgray;
+}
+.chat_container{
+    max-width: 30em;
+    margin: 40px auto;
+    border: 1px solid black;
+    background-color: beige;
+    
 }
