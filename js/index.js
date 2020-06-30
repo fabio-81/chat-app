@@ -12,7 +12,7 @@ const socket = io()
 // socket.emit('newuser', {user: $userName}) //set a variable 'newuser' and the data
 
 // Event listener, waiting for an incoming "newuser"
-socket.on('newuser', (data) => console.log(`${data.user} has connected!`))
+// socket.on('newuser', (data) => console.log(`${data.user} has connected!`))
 
 const $msgForm = document.getElementById('form')
 const $messages = document.getElementById('messages')
